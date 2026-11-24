@@ -1,0 +1,21 @@
+<!--
+  Plugin descriptor. Version and compatibility (since-build) are injected by Gradle
+  from build.gradle.kts (patchPluginXml task), so they are not set here.
+-->
+<idea-plugin>
+  <id>perso.jonathan.everforest-theme</id>
+  <name>Everforest (perso)</name>
+  <vendor>perso</vendor>
+  <description><![CDATA[
+    Personal Everforest theme: the Islands UI recoloured with the Everforest palette,
+    plus an editor / console / terminal colour scheme matching the Ptyxis terminal.
+  ]]></description>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- A theme is a .theme.json file registered through themeProvider.
+         The id must be unique; path is relative to the jar root (src/main/resources). -->
+    <themeProvider id="perso-everforest-dark" path="/themes/everforest.theme.json"/>
+  </extensions>
+</idea-plugin>

@@ -1,0 +1,26 @@
+<!--
+  Plugin descriptor. Version and compatibility (since-build) are injected by Gradle
+  from build.gradle.kts (patchPluginXml task), so they are not set here.
+-->
+<idea-plugin>
+  <id>perso.jonathan.nowina-progress-bar</id>
+  <name>Nowina Progress Bar</name>
+  <vendor>perso</vendor>
+  <description><![CDATA[
+    Personal progress bar in Nowina colours: the N logo rides at the end of a blue bar
+    (known progress) and bounces back and forth (indeterminate progress).
+    Personal use only - the Nowina logo is a trademark.
+  ]]></description>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <!-- Declarative listeners: the IDE instantiates them on demand.
+       We listen to theme changes (which reset the Swing UI defaults)
+       and to window activation, like the Mario Progress Bar plugin. -->
+  <applicationListeners>
+    <listener class="perso.nowina.progress.NowinaLafListener"
+              topic="com.intellij.ide.ui.LafManagerListener"/>
+    <listener class="perso.nowina.progress.NowinaLafListener"
+              topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+  </applicationListeners>
+</idea-plugin>
